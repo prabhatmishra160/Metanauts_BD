@@ -1,0 +1,71 @@
+
+API_key="5HEEqJCZVZbpUBnlu0xCJPo7z"
+
+API_secret="b6gVWd2iHStuymAXLGmeofNslQJkIutUBv0XCyE5eMAqyPuVPy"
+
+
+access_token="200766421-NgAgOqzEmEJuTdi7ThCY63HKjFkg1kCl22nouxiP"
+
+
+access_token_secret="fVyifQxLlthmwHHa4IsEBbK5ApxQRBSgA7hjrb2o8f7PI"
+
+import tweepy
+import pandas as pd
+
+# connected to jump server of twitter
+auth=tweepy.OAuthHandler(API_key,API_secret)
+# now we can connect from jump server to web server of twitter
+auth.set_access_token(access_token,access_token_secret)
+# now we can connect to API storge server of twitter
+api=tweepy.API(auth)
+
+cursor=tweepy.Cursor(api.user_timeline, id='JoeBiden',tweet_mode="extended").items(100)
+
+print(cursor)
+
+
+number_of_count=200
+likes=[]
+
+times=[]
+tweets=[]
+
+for i in tweepy.Cursor(api.user_timeline,id="realDonaldTrump",tweet_mode="extended").items(number_of_count):
+    tweets.append(i,full_text)
+    likes.append(i,favorite_count)
+    times.append(i,created_at)
+ 
+
+
+****************Question no.2********************************************
+
+i have a data related to reviews about JoeBiden so with the help of this twitter data we can analalyse what public currently think about him .
+ 
+
+****************Question no.3********************************************
+
+we can use this data for sentiment anaysis and on that basis we can predict in coming election how its party is going to perform.
+
+
+****************Question no.4********************************************
+useful libraries for this analysis
+# nltk
+import nltk
+from nltk.corpus import stopwords
+from  nltk.stem import SnowballStemmer
+
+# Word2vec
+import gensim
+
+# Scikit-learn
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
+from sklearn.manifold import TSNE
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+# DataFrame
+import pandas as pd
+
+# Matplot
+import matplotlib.pyplot as plt
