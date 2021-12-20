@@ -1,0 +1,106 @@
+************question1****************
+
+object myobject {
+  def main(args: Array[String]): Unit = {
+    val list=List(1,1,1,2,3,4,4,4,4,4,5,5,6,7,7,7,8)
+    println(count_list_element(list))
+  }
+
+  def count_list_element[X](list1: List[X]): Map[X,  Int ]={
+  list1.groupBy(x1 => x1).map(x1 => (x1._1,x1._2.length))
+  }
+}
+
+
+
+***************question 2***************************************
+
+object myobject {
+  def main(args: Array[String]): Unit = {
+    calculate_odd_even()
+  }
+
+  def calculate_odd_even():Unit={
+    val list=List(1,1,1,2,3,4,4,4,4,4,5,5,6,7,7,7,8)
+    val even_number=list.filter(_%2==0)
+    println("even number list=",even_number)
+    val odd_number=list.filter(_%2!=0)
+    println("odd number=",odd_number)
+  }
+}
+
+
+*************************question no.3*************************************
+object myobject {
+  def main(args: Array[String]): Unit = {
+    distinct_value()
+  }
+
+  def distinct_value():Unit={
+    val list=List(1,1,1,2,3,4,4,4,4,4,5,5,6,7,7,7,8)
+    val unique_value=list.distinct
+    println("unique element in list=",unique_value)
+  }
+}
+
+
+*************************question no.4*************************************
+
+
+object myobject {
+  def main(args: Array[String]): Unit = {
+    Min_max_value()
+  }
+
+  def Min_max_value():Unit={
+    val list=List(1,1,1,2,3,4,4,4,4,4,5,5,6,7,7,7,8)
+    val max_number=list.max
+    println("Max number in list=",max_number)
+    val min_number=list.min
+    println("Max number in list=",min_number)
+  }
+}
+
+
+*************************question no.5*************************************
+
+
+
+object myobject {
+  def main(args: Array[String]): Unit = {
+    print_list_element()
+    sum_list()
+    product_list()
+
+  }
+
+  def print_list_element():Unit={
+    val list=List(1,1,1,2,3,4,4,4,4,4,5,5,6,7,7,7,8)
+    print("list print")
+    for(i<-list){
+
+      println(i)
+    }
+
+  }
+  def sum_list():Unit={
+    val list=List(1,1,1,2,3,4,4,4,4,4,5,5,6,7,7,7,8)
+//sum calculation
+    val sum=list.sum
+    println("sum of element=",sum)
+  }
+  def product_list():Unit={
+    val list=List(1,1,1,2,3,4,4,4,4)
+    //product calculation
+    val products=list.product
+    println("product of list=",products)
+  }
+}
+
+
+
+
+
+
+
+
