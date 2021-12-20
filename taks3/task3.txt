@@ -1,0 +1,40 @@
+package com.scala.myfile
+
+object word_frequncy {
+  def main(args: Array[String]): Unit = {
+
+     readFile()
+
+  }
+  //fnction to read file
+  def readFile(): Unit ={
+    import scala.io.Source
+
+    val filename = "C:\\Users\\prabh\\Downloads\\task2.txt"
+     var lines=""
+    for (line <- Source.fromFile(filename).getLines){
+          lines=lines+line//combine all the lines
+    }
+
+    val str1=lines.toLowerCase   //convert in to lowr case
+      val without_digits = str1.filter(!_.isDigit)
+     val pure_text = without_digits.replaceAll("""[\p{Punct}&&[^.]]""", " ") //remove punchuation
+
+      val pure=pure_text.split(" ")
+
+      val wordCount = scala.collection.mutable.HashMap[String, Int]()
+
+      for (word <- pure) {
+        val count = wordCount.getOrElse(word, 0)
+        wordCount(word) = count + 1
+        }
+      println(wordCount)  //print frequency of each word in text
+    
+    
+    
+    
+  
+
+  }
+
+}
